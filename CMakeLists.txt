@@ -3,4 +3,4 @@ project(Labo09)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Labo09 main.cpp)
+add_executable(Labo09 main.cpp read.cpp read.h search.cpp search.h)
