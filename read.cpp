@@ -7,6 +7,8 @@
 #include <fstream>
 #include "read.h"
 
+#include <iostream>
+
 using namespace std;
 
 std::vector<std::string> readFile(const std::string &fileName) {
@@ -26,4 +28,14 @@ std::vector<std::string> readFile(const std::string &fileName) {
   ifs.close();
 
   return content;
+}
+
+
+void inverse(vector<string>& dict) {
+    for(size_t i = 0; i < dict.size() / 2; ++i) {
+        string tmp = dict.at(i);
+        // Last - 1 to be in range (size() - 0 = out of range and size() - 0 - 1 = in range)
+        dict.at(i) = dict.at(dict.size() - i - 1);
+        dict.at(dict.size() - i - 1) = tmp;
+    }
 }

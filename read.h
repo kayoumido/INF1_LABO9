@@ -9,7 +9,11 @@
 #include <vector>
 
 std::vector<std::string> readFile(const std::string& fileName);
-void inverse(const std::vector<std::string>& dict);
+/**
+ * @brief Inverse order of all words in a dictionnary.
+ * @param dict The dictionnary as a vector of string that contains words
+ */
+void inverse(std::vector<std::string>& dict);
 void sortAsc(const std::vector<std::string>& dict);
 
 // ../ is used because the executable is found in cmake-build-debug/ (clion)
