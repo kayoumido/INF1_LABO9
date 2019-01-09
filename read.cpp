@@ -2,12 +2,9 @@
  * Entête : TODO
  */
 
-
+#include "read.h"
 #include <iostream>
 #include <fstream>
-#include "read.h"
-
-#include <iostream>
 
 using namespace std;
 
