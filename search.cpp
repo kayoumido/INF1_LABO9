@@ -32,10 +32,13 @@ size_t linearSearch(const vector<string>& DICT, string searchWord) {
 
 vector<string>::iterator
 linearSearch(const vector<string>::iterator &START, const vector<string>::iterator &END,
-             const string &WORD) {
+             string searchWord) {
+
+    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
 
     for (vector<string>::iterator i = START; i < END; ++i) {
-        if (*i == WORD) return i;
+        string currentWord = CASE_SENSITIVE ? *i : strToLower(*i);
+        if (currentWord == searchWord) return i;
     }
     return END;
 }
