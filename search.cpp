@@ -15,14 +15,14 @@ using namespace std;
 string strToLower(string word);
 
 
-size_t linearSearch(const vector<string>& DICT, string searchWord) {
-    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
+size_t linearSearch(const vector<string> &DICT, string searchWord) {
+    if (!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
 
     size_t foundPos = string::npos;
-    for(size_t i = 0; i <= DICT.size() - 1; ++i) {
+    for (size_t i = 0; i <= DICT.size() - 1; ++i) {
         // word transformation needed if not case sensitive
         string currentWord = CASE_SENSITIVE ? DICT.at(i) : strToLower(DICT.at(i));
-        if(currentWord == searchWord){
+        if (currentWord == searchWord) {
             foundPos = i;
             break;
         }
@@ -34,7 +34,7 @@ vector<string>::iterator
 linearSearch(const vector<string>::iterator &START, const vector<string>::iterator &END,
              string searchWord) {
 
-    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
+    if (!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
 
     for (vector<string>::iterator i = START; i < END; ++i) {
         string currentWord = CASE_SENSITIVE ? *i : strToLower(*i);
@@ -46,13 +46,13 @@ linearSearch(const vector<string>::iterator &START, const vector<string>::iterat
 size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
 
     // searchWord transformation needed if not case sensitive
-    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord);
+    if (!CASE_SENSITIVE) searchWord = strToLower(searchWord);
 
     size_t start = 0;
     size_t middle;
     size_t end = DICT.size();
 
-    while (start < end) {
+    while (start < end and end < DICT.size() and start < DICT.size()) {
         middle = start + (end - start) / 2;
         // get the current word
         string currentWord = CASE_SENSITIVE ? DICT.at(middle) : strToLower(DICT.at(middle));
@@ -74,7 +74,7 @@ size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
 
 string strToLower(string word) {
     string wordLower;
-    for(size_t i = 0; i <= word.length() - 1; ++i) {
+    for (size_t i = 0; i <= word.length() - 1; ++i) {
         wordLower += (char) tolower(word.at(i));
     }
     return wordLower;
