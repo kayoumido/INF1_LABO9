@@ -18,7 +18,7 @@ const std::string FILE_EXTENSION = ".txt";
  * @param fileName
  * @return
  */
-std::vector<std::string> readFile(const std::string &fileName);
+std::vector<std::string> readFile(const std::string &FILE_NAME);
 
 /**
  * @brief Inverse order of all words in a dictionnary.

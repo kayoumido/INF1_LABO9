@@ -8,8 +8,8 @@
 
 using namespace std;
 
-vector<string> readFile(const string &fileName) {
-    string relativePath = DICT_FILE_LOCATION + OS_TYPE + fileName + FILE_EXTENSION;
+vector<string> readFile(const string &FILE_NAME) {
+    string relativePath = DICT_FILE_LOCATION + OS_TYPE + FILE_NAME + FILE_EXTENSION;
     vector<string> content;
     ifstream ifs;
 
