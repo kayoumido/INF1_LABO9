@@ -9,7 +9,8 @@
 #include <vector>
 #include <string>
 
-const bool CASE_SENSITIVE = false;
+// TODO, Well maybe, make it user input ?
+const bool CASE_SENSITIVE = true;
 
 std::size_t linearSearch(const std::vector<std::string>& DICT, std::string word);
 
@@ -17,7 +18,7 @@ std::vector<std::string>::iterator
 linearSearch(const std::vector<std::string>::iterator &START, const std::vector<std::string>::iterator &END,
              std::string searchWord);
 
-std::size_t dichotomySearch(const std::vector<std::string> &DICT, const std::string &WORD);
+std::size_t dichotomySearch(const std::vector<std::string> &DICT, std::string searchWord);
 
 std::vector<std::string>::iterator
 dichotomySearch(const std::vector<std::string>::iterator &START, const std::vector<std::string>::iterator &END,

@@ -43,25 +43,32 @@ linearSearch(const vector<string>::iterator &START, const vector<string>::iterat
     return END;
 }
 
-std::size_t dichotomySearch(const std::vector<std::string> &DICT, const std::string &WORD) {
+size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
 
-    size_t middle = DICT.size() / 2;
-
-    if (WORD == DICT.at(middle)) return middle;
+    // searchWord transformation needed if not case sensitive
+    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord);
 
     size_t start = 0;
-    size_t end = middle;
-    string middle_word = DICT.at(middle);
-    if (WORD > middle_word) {
-        start = middle;
-        end = DICT.size();
+    size_t middle;
+    size_t end = DICT.size();
+
+    while (start < end) {
+        middle = start + (end - start) / 2;
+        // get the current word
+        string currentWord = CASE_SENSITIVE ? DICT.at(middle) : strToLower(DICT.at(middle));
+
+        // did we find the word?
+        if (searchWord == currentWord) return middle;
+        // no, check in which half it is
+        if (searchWord > currentWord) {
+            start = middle + 1;
+        } else {
+            end = middle - 1;
+        }
     }
 
-    for (size_t i = start; i < end; ++i) {
-        if (WORD == DICT.at(i)) return i;
-    }
-
-    return size_t(-1);
+    // the word wasn't found
+    return string::npos;
 }
 
 
