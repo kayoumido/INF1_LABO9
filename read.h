@@ -11,7 +11,7 @@
 // ../ is used because the executable is found in cmake-build-debug/ (clion)
 const std::string DICT_FILE_LOCATION = "../dico/";
 const std::string OS_TYPE = "unix/";
-
+const std::string FILE_EXTENSION = ".txt";
 
 std::vector<std::string> readFile(const std::string& fileName);
 /**

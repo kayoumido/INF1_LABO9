@@ -9,7 +9,7 @@
 using namespace std;
 
 std::vector<std::string> readFile(const std::string &fileName) {
-  string relativePath = DICT_FILE_LOCATION + OS_TYPE + fileName + ".txt";
+  string relativePath = DICT_FILE_LOCATION + OS_TYPE + fileName + FILE_EXTENSION;
   vector<string> content;
   ifstream ifs;
 
