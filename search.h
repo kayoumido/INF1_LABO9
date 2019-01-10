@@ -9,7 +9,9 @@
 #include <vector>
 #include <string>
 
-std::size_t linearSearch(const std::vector<std::string>& dict, const std::string& word);
+const bool CASE_SENSITIVE = false;
+
+std::size_t linearSearch(const std::vector<std::string>& DICT, std::string word);
 std::vector<std::string>::iterator linearSearch(const std::vector<std::string>::iterator& begin, const std::vector<std::string>::iterator& end, const std::string& word);
 std::size_t dichotomySearch(const std::vector<std::string>& dict, const std::string& word);
 std::vector<std::string>::iterator dichotomySearch(const std::vector<std::string>::iterator& begin, const std::vector<std::string>::iterator& end, const std::string& word);

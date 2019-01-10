@@ -3,6 +3,8 @@
  */
 
 #include "read.h"
+#include "search.h"
+
 #include <iostream>
 
 using namespace std;
@@ -17,11 +19,14 @@ void displayDict(const vector<string>& dict) {
 int main() {
 
   vector<string> dict = readFile("nato");
+  string search = "PAPA";
 
-  displayDict(dict);
-  cout << endl;
-  inverse(dict);
-  displayDict(dict);
+  if(linearSearch(dict, search) != string::npos) {
+    cout << "Found !" << endl;
+  }else {
+    cout << "Not found ..." << endl;
+  }
+
 
 
   return 0;
