@@ -71,6 +71,38 @@ size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
     return string::npos;
 }
 
+vector<string>::iterator dichotomySearch(vector<string>::iterator startIt, vector<string>::iterator endIt, string searchWord) {
+    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
+
+    bool found = false;
+    vector<string>::iterator foundIt = endIt;
+    long gap = distance(startIt, endIt);
+
+    while(!found && gap >= 1) {
+        long middle = (gap % 2) ? gap / 2 : gap / 2 - 1; // the middle index (from 0)
+
+        vector<string>::iterator middleIt = startIt + middle;
+
+        string currentWord = CASE_SENSITIVE ? *middleIt : strToLower(*middleIt);
+        if(currentWord == searchWord) {
+            found = true;
+            foundIt = middleIt;
+        } else {
+            if(searchWord < currentWord) {
+                endIt = middleIt; // No - 1 because the end iterator is after the last element
+            } else {
+                startIt = ++middleIt;
+            }
+        }
+
+        // Calcul the new gap
+        gap = distance(startIt, endIt);
+    }
+
+    return foundIt;
+}
+
+
 
 string strToLower(string word) {
     string wordLower;

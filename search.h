@@ -10,7 +10,7 @@
 #include <string>
 
 // TODO, Well maybe, make it user input ?
-const bool CASE_SENSITIVE = true;
+const bool CASE_SENSITIVE = false;
 
 std::size_t linearSearch(const std::vector<std::string>& DICT, std::string word);
 
@@ -21,8 +21,7 @@ linearSearch(const std::vector<std::string>::iterator &START, const std::vector<
 std::size_t dichotomySearch(const std::vector<std::string> &DICT, std::string searchWord);
 
 std::vector<std::string>::iterator
-dichotomySearch(const std::vector<std::string>::iterator &START, const std::vector<std::string>::iterator &END,
-                const std::string &WORD);
+dichotomySearch(std::vector<std::string>::iterator startIt, std::vector<std::string>::iterator endIt, std::string searchWord);
 
 bool
 recursiveDichotomySearch(const std::vector<std::string>::iterator &START, const std::vector<std::string>::iterator &END,
