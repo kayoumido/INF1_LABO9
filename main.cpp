@@ -17,10 +17,10 @@ void displayDict(const vector<string> &dict) {
 
 int main() {
 
-    vector<string> dict = readFile("otan");
+    vector<string> dict = readFile("nato");
 
-    auto foo = linearSearch(dict.begin(), dict.end(), "Papa");
-    cout << *foo;
+    auto foo = dichotomySearch(dict, "Papa");
+    cout << foo;
 
     return 0;
 }
