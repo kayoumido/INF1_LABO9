@@ -3,6 +3,7 @@
  */
 
 #include "read.h"
+#include "search.h"
 #include <iostream>
 
 using namespace std;
@@ -16,14 +17,10 @@ void displayDict(const vector<string> &dict) {
 
 int main() {
 
-    vector<string> dict = readFile("nato");
+    vector<string> dict = readFile("otan");
 
-    //displayDict(dict);
-    //cout << endl;
-    inverse(dict);
-    sortAsc(dict);
-    displayDict(dict);
-
+    auto foo = linearSearch(dict.begin(), dict.end(), "Papa");
+    cout << *foo;
 
     return 0;
 }

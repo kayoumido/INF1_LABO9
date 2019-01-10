@@ -12,21 +12,21 @@
 std::size_t linearSearch(const std::vector<std::string> &dict, const std::string &word);
 
 std::vector<std::string>::iterator
-linearSearch(const std::vector<std::string>::iterator &begin, const std::vector<std::string>::iterator &end,
-             const std::string &word);
+linearSearch(const std::vector<std::string>::iterator &START, const std::vector<std::string>::iterator &END,
+             const std::string &WORD);
 
-std::size_t dichotomySearch(const std::vector<std::string> &dict, const std::string &word);
+std::size_t dichotomySearch(const std::vector<std::string> &DICT, const std::string &WORD);
 
 std::vector<std::string>::iterator
-dichotomySearch(const std::vector<std::string>::iterator &begin, const std::vector<std::string>::iterator &end,
-                const std::string &word);
+dichotomySearch(const std::vector<std::string>::iterator &START, const std::vector<std::string>::iterator &END,
+                const std::string &WORD);
 
 bool
-recursiveDichotomySearch(const std::vector<std::string>::iterator &begin, const std::vector<std::string>::iterator &end,
-                         const std::string &word);
+recursiveDichotomySearch(const std::vector<std::string>::iterator &START, const std::vector<std::string>::iterator &END,
+                         const std::string &WORD);
 
 bool
-rechercheDichotomiqueRecursive(const std::vector<std::string> &dict, const std::string &word, std::size_t first = 0,
+rechercheDichotomiqueRecursive(const std::vector<std::string> &DICT, const std::string &WORD, std::size_t first = 0,
                                std::size_t last = 10); // TODO trouver les vrais valeurs first et last
 
 
