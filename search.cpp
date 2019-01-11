@@ -79,9 +79,7 @@ vector<string>::iterator dichotomySearch(vector<string>::iterator startIt, vecto
     long gap = distance(startIt, endIt);
 
     while(!found && gap >= 1) {
-        long middle = (gap % 2) ? gap / 2 : gap / 2 - 1; // the middle index (from 0)
-
-        vector<string>::iterator middleIt = startIt + middle;
+        vector<string>::iterator middleIt = startIt + (gap / 2);
 
         string currentWord = CASE_SENSITIVE ? *middleIt : strToLower(*middleIt);
         if(currentWord == searchWord) {
