@@ -19,7 +19,9 @@ int main() {
 
     vector<string> dict = readFile("nato");
 
-    auto foo = dichotomySearch(dict, "Papa");
+    auto foo = dichotomySearch(dict, "Alpha");
+
+    cout << foo << endl;
 
     if (foo != string::npos)
         cout << dict.at(foo) << endl;

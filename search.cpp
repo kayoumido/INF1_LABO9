@@ -52,7 +52,7 @@ size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
     size_t middle;
     size_t end = DICT.size();
 
-    while (start < end and end < DICT.size() and start < DICT.size()) {
+    while (start < end) {
         middle = start + (end - start) / 2;
         // get the current word
         string currentWord = CASE_SENSITIVE ? DICT.at(middle) : strToLower(DICT.at(middle));
@@ -63,7 +63,7 @@ size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
         if (searchWord > currentWord) {
             start = middle + 1;
         } else {
-            end = middle - 1;
+            end = middle;
         }
     }
 
