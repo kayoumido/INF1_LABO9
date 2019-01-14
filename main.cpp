@@ -18,9 +18,9 @@ void displayDict(const vector<string> &dict) {
 int main() {
 
     vector<string> dict = readFile("nato");
+    string a = "alpha";
+    cout << recursiveBinarySearch(dict.begin(), dict.end(), a);
 
-    auto foo = linearSearch(dict.begin(), dict.end(), "Papa");
-    cout << *foo;
 
     return 0;
 }
