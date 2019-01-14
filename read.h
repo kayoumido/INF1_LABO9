@@ -21,11 +21,15 @@ const std::string FILE_EXTENSION = ".txt";
 std::vector<std::string> readFile(const std::string &FILE_NAME);
 
 /**
- * @brief Inverse order of all words in a dictionnary.
- * @param dict The dictionnary as a vector of string that contains words
+ * @brief Inverse order of all the items in a vector of strings.
+ * @param dict the vector of strings to invert
  */
 void inverse(std::vector<std::string> &dict);
 
+/**
+ * ASC Sort a vector of string using the bubble sort algorithme
+ * @param dict vector to sort
+ */
 void sortAsc(std::vector<std::string> &dict);
 
 #endif //LABO09_READ_H
