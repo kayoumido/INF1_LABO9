@@ -19,10 +19,10 @@ void displayDict(const vector<string> &dict) {
 
 int main() {
 
-    vector<string> dict = readFile("nato");
-    string a = "Zul";
-    cout << recursiveBinarySearch(dict, a);
+    vector<string> dict = readFile("dictionary");
 
+    sortAsc(dict);
 
+    displayDict(dict);
     return 0;
 }
