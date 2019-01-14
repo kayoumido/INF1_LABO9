@@ -1,7 +1,17 @@
-/**
- * Entête : TODO
- */
+/*
+-----------------------------------------------------------------------------------
+Laboratoire : Labo09
+Fichier     : search.cpp
+Auteur(s)   : Loic Dessaules, Doran Kayoumi
+Date        : 14.01.2019
 
+But         : Contient les divers fonctions de recherches (Linéaire, Dicotomique, etc.)
+
+Remarque(s) :
+
+Compilateur : MinGW-g++ <8.2.1>
+-----------------------------------------------------------------------------------
+ */
 #include "search.h"
 
 using namespace std;

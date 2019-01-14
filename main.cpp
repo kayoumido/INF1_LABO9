@@ -1,6 +1,19 @@
-/**
- * Entête : TODO
+/*
+-----------------------------------------------------------------------------------
+Laboratoire : Labo09
+Fichier     : main.cpp
+Auteur(s)   : Loic Dessaules, Doran Kayoumi
+Date        : 14.01.2019
+
+But         : Fichier principale, contenant l'execution des différentes fonctions
+                de recherche.
+
+Remarque(s) :
+
+Compilateur : MinGW-g++ <8.2.1>
+-----------------------------------------------------------------------------------
  */
+
 
 #include "read.h"
 #include "search.h"
