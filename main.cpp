@@ -18,15 +18,9 @@ void displayDict(const vector<string> &dict) {
 int main() {
 
     vector<string> dict = readFile("nato");
+    string a = "alpha";
+    cout << recursiveBinarySearch(dict.begin(), dict.end(), a);
 
-    auto foo = dichotomySearch(dict, "Alpha");
-
-    cout << foo << endl;
-
-    if (foo != string::npos)
-        cout << dict.at(foo) << endl;
-    else
-        cout << "Nothing was found" << endl;
 
     return 0;
 }

@@ -71,7 +71,7 @@ size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
     return string::npos;
 }
 
-vector<string>::iterator dichotomySearch(vector<string>::iterator startIt, vector<string>::iterator endIt, string searchWord) {
+vector<string>::iterator binarySearch(vector<string>::iterator startIt, vector<string>::iterator endIt, string searchWord) {
     if(!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
 
     bool found = false;
@@ -98,6 +98,29 @@ vector<string>::iterator dichotomySearch(vector<string>::iterator startIt, vecto
     }
 
     return foundIt;
+}
+
+bool recursiveBinarySearch(vector<string>::iterator startIt, vector<string>::iterator endIt, string searchWord) {
+    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
+
+    long gap = distance(startIt, endIt);
+    if(gap == 0){
+        return false;
+    }
+
+    vector<string>::iterator middleIt = startIt + (gap / 2);
+    string currentWord = CASE_SENSITIVE ? *middleIt : strToLower(*middleIt);
+    if(currentWord == searchWord){
+        return true;
+    } else {
+        if(searchWord < currentWord) {
+            endIt = middleIt;
+        } else {
+            startIt = ++middleIt;
+        }
+    }
+
+    return recursiveBinarySearch(startIt, endIt, searchWord);
 }
 
 
