@@ -14,7 +14,6 @@ using namespace std;
  */
 string strToLower(string word);
 
-
 size_t linearSearch(const vector<string> &DICT, string searchWord) {
     if (!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
 
@@ -43,7 +42,7 @@ linearSearch(const vector<string>::iterator &START, const vector<string>::iterat
     return END;
 }
 
-size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
+size_t binarySearch(const vector<string> &DICT, string searchWord) {
 
     // searchWord transformation needed if not case sensitive
     if (!CASE_SENSITIVE) searchWord = strToLower(searchWord);
@@ -71,22 +70,23 @@ size_t dichotomySearch(const vector<string> &DICT, string searchWord) {
     return string::npos;
 }
 
-vector<string>::iterator binarySearch(vector<string>::iterator startIt, vector<string>::iterator endIt, string searchWord) {
-    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
+vector<string>::iterator
+binarySearch(vector<string>::iterator startIt, vector<string>::iterator endIt, string searchWord) {
+    if (!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
 
     bool found = false;
     vector<string>::iterator foundIt = endIt;
     long gap = distance(startIt, endIt);
 
-    while(!found && gap >= 1) {
+    while (!found && gap >= 1) {
         vector<string>::iterator middleIt = startIt + (gap / 2);
 
         string currentWord = CASE_SENSITIVE ? *middleIt : strToLower(*middleIt);
-        if(currentWord == searchWord) {
+        if (currentWord == searchWord) {
             found = true;
             foundIt = middleIt;
         } else {
-            if(searchWord < currentWord) {
+            if (searchWord < currentWord) {
                 endIt = middleIt; // No - 1 because the end iterator is after the last element
             } else {
                 startIt = ++middleIt;
@@ -100,20 +100,27 @@ vector<string>::iterator binarySearch(vector<string>::iterator startIt, vector<s
     return foundIt;
 }
 
+bool recursiveBinarySearch(const vector<string> &DICT, string searchWord) {
+    // searchWord transformation needed if not case sensitive
+    if (!CASE_SENSITIVE) searchWord = strToLower(searchWord);
+
+    return recursiveBinarySearch(DICT, searchWord, 0, DICT.size());
+}
+
 bool recursiveBinarySearch(vector<string>::iterator startIt, vector<string>::iterator endIt, string searchWord) {
-    if(!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
+    if (!CASE_SENSITIVE) searchWord = strToLower(searchWord); // searchWord transformation needed if not case sensitive
 
     long gap = distance(startIt, endIt);
-    if(gap == 0){
+    if (gap == 0) {
         return false;
     }
 
     vector<string>::iterator middleIt = startIt + (gap / 2);
     string currentWord = CASE_SENSITIVE ? *middleIt : strToLower(*middleIt);
-    if(currentWord == searchWord){
+    if (currentWord == searchWord) {
         return true;
     } else {
-        if(searchWord < currentWord) {
+        if (searchWord < currentWord) {
             endIt = middleIt;
         } else {
             startIt = ++middleIt;
@@ -123,7 +130,24 @@ bool recursiveBinarySearch(vector<string>::iterator startIt, vector<string>::ite
     return recursiveBinarySearch(startIt, endIt, searchWord);
 }
 
+bool recursiveBinarySearch(const vector<string> &DICT, const string &WORD, size_t first,
+                           size_t last) {
 
+    size_t middle = first + (last - first) / 2;
+
+    string currentWord = CASE_SENSITIVE ? DICT.at(middle) : strToLower(DICT.at(middle));
+    if (currentWord == WORD) return true;
+
+    if (last - first == 1) return false;
+
+    if (currentWord < WORD) {
+        first = middle + 1;
+    } else {
+        last = middle;
+    }
+
+    return recursiveBinarySearch(DICT, WORD, first, last);
+}
 
 string strToLower(string word) {
     string wordLower;

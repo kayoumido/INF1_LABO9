@@ -14,9 +14,9 @@ const std::string OS_TYPE = "unix/";
 const std::string FILE_EXTENSION = ".txt";
 
 /**
- * TODO
- * @param fileName
- * @return
+ * @brief Reads a file and store it's content in a vector
+ * @param fileName to open
+ * @return the vector containing the file content
  */
 std::vector<std::string> readFile(const std::string &FILE_NAME);
 

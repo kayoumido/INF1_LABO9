@@ -15,11 +15,13 @@ void displayDict(const vector<string> &dict) {
     }
 }
 
+
+
 int main() {
 
     vector<string> dict = readFile("nato");
-    string a = "alpha";
-    cout << recursiveBinarySearch(dict.begin(), dict.end(), a);
+    string a = "Zul";
+    cout << recursiveBinarySearch(dict, a);
 
 
     return 0;
