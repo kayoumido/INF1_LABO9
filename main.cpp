@@ -24,7 +24,7 @@ using namespace std;
 
 int main() {
 
-    string searchWord = "zuludw";
+    string searchWord = "zulu";
 
     vector<string> inverseDict= readFile("inverse_dictionary");
     inverse(inverseDict);
@@ -92,15 +92,5 @@ int main() {
     } else {
         cout << "Trouve" << endl;
     }
-
-
-    cout << "Recherche dichotomique recursive 2 (otan) : ";
-    bool recursiveBinaryResponse3 = recursiveBinarySearch(otanDict, searchWord, 0, otanDict.size());
-    if(!recursiveBinaryResponse3) {
-        cout << "Pas trouve" << endl;
-    } else {
-        cout << "Trouve" << endl;
-    }
-
     return 0;
 }
