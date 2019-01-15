@@ -24,7 +24,7 @@ using namespace std;
 
 int main() {
 
-    string searchWord = "zulu";
+    string searchWord = "hotels";
 
     vector<string> inverseDict= readFile("inverse_dictionary");
     inverse(inverseDict);
@@ -51,7 +51,7 @@ int main() {
 
     cout << "Recherche lineaire avec iterateur (orderedDict) : ";
     vector<string>::iterator linearResponseIt = linearSearch(orderedDict.begin(), orderedDict.end(), searchWord);
-    if(*linearResponseIt == "") {
+    if(linearResponseIt == orderedDict.end()) {
         cout << "Pas trouve" << endl;
     } else {
         cout << "Trouve" << endl;
@@ -59,7 +59,7 @@ int main() {
 
 
     cout << "Recherche dichotomique (nato) : ";
-    size_t binaryResponsePos = linearSearch(natoDict, searchWord);
+    size_t binaryResponsePos = binarySearch(natoDict, searchWord);
     if(binaryResponsePos == string::npos) {
         cout << "Pas trouve" << endl;
     } else {
@@ -68,8 +68,8 @@ int main() {
 
 
     cout << "Recherche dichotomique avec iterateur (nato_shuffled) : ";
-    vector<string>::iterator binaryResponseIt = linearSearch(natoShuffled.begin(), natoShuffled.end(), searchWord);
-    if(*binaryResponseIt == "") {
+    vector<string>::iterator binaryResponseIt = binarySearch(natoShuffled.begin(), natoShuffled.end(), searchWord);
+    if(binaryResponseIt == natoShuffled.end()) {
         cout << "Pas trouve" << endl;
     } else {
         cout << "Trouve" << endl;
