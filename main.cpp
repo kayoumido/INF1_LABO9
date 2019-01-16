@@ -25,7 +25,8 @@ using namespace std;
 
 int main() {
 
-    string searchWord = "zulu";
+    // Dictionary loading
+    vector<string> dict = readFile("dictionary");
 
     vector<string> inverseDict= readFile("inverse_dictionary");
     inverse(inverseDict);
@@ -41,6 +42,14 @@ int main() {
     inverse(otanDict);
 
 
+    // User input
+    string searchWord;
+    cout << "Veuillez entrer un mot à rechercher : ";
+    cin >> searchWord;
+
+    cout << "Recherche du mot : " << searchWord << endl;
+    cout << "------------------------------------" << endl;
+
     cout << "Recherche lineaire sans iterateur (inverse_dictionary) : ";
     size_t linearResponsePos = linearSearch(inverseDict, searchWord);
     if(linearResponsePos == string::npos) {
@@ -50,9 +59,9 @@ int main() {
     }
 
 
-    cout << "Recherche lineaire avec iterateur (orderedDict) : ";
-    vector<string>::iterator linearResponseIt = linearSearch(orderedDict.begin(), orderedDict.end(), searchWord);
-    if(linearResponseIt == orderedDict.end()) {
+    cout << "Recherche lineaire avec iterateur (dictionary) : ";
+    vector<string>::iterator linearResponseIt = linearSearch(dict.begin(), dict.end(), searchWord);
+    if(linearResponseIt == dict.end()) {
         cout << "Pas trouve" << endl;
     } else {
         cout << "Trouve" << endl;
