@@ -3,7 +3,7 @@
 Laboratoire : Labo09
 Fichier     : main.cpp
 Auteur(s)   : Loic Dessaules, Doran Kayoumi
-Date        : 14.01.2019
+Date        : 16.01.2019
 
 But         : Fichier principale, contenant l'execution des différentes fonctions
                 de recherche.
@@ -14,7 +14,7 @@ Remarque(s) : 1. Nous avons décider de gérer entièrement la casse, dans le he
               "OS_TYPE" qui correspond à la plateforme que vous utiliser dans le header read.h. Il faut qu'elle corresponde
               à l'OS que vous utilisez car les dictionnaires n'ont pas le meme encodage sur Linux ou Windows.
 
-Compilateur : MinGW-g++ <8.2.1>
+Compilateur : g++ <8.2.1>
 -----------------------------------------------------------------------------------
  */
 
