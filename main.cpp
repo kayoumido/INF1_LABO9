@@ -18,13 +18,14 @@ Compilateur : MinGW-g++ <8.2.1>
 #include "read.h"
 #include "search.h"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 
 int main() {
 
-    string searchWord = "zulu";
+    string searchWord = "zuluh";
 
     vector<string> inverseDict= readFile("inverse_dictionary");
     inverse(inverseDict);
@@ -37,7 +38,7 @@ int main() {
     sortAsc(natoShuffled);
 
     vector<string> otanDict = readFile("otan");
-    sortAsc(otanDict);
+    inverse(otanDict);
 
 
     cout << "Recherche lineaire sans iterateur (inverse_dictionary) : ";
@@ -77,8 +78,8 @@ int main() {
 
 
     cout << "Recherche dichotomique recursive (otan) : ";
-    bool recursiveBinaryResponse1 = recursiveBinarySearch(otanDict, searchWord);
-    if(!recursiveBinaryResponse1) {
+    size_t recursiveBinaryResponse1 = recursiveBinarySearch(otanDict, searchWord);
+    if(recursiveBinaryResponse1 == string::npos) {
         cout << "Pas trouve" << endl;
     } else {
         cout << "Trouve" << endl;

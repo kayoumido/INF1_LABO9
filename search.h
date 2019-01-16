@@ -66,7 +66,7 @@ binarySearch(std::vector<std::string>::iterator startIt, std::vector<std::string
  * @param searchWord word to search
  * @return true if the word was found, otherwise false
  */
-bool
+size_t
 recursiveBinarySearch(const std::vector<std::string> &DICT, std::string searchWord);
 
 /**
@@ -77,7 +77,7 @@ recursiveBinarySearch(const std::vector<std::string> &DICT, std::string searchWo
  * @param last end of range
  * @return true if the word was found, otherwise false
  */
-bool
+size_t
 recursiveBinarySearch(const std::vector<std::string> &DICT, const std::string &WORD, std::size_t first,
                       std::size_t last);
 

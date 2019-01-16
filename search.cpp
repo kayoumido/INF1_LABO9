@@ -110,7 +110,7 @@ binarySearch(vector<string>::iterator startIt, vector<string>::iterator endIt, s
     return foundIt;
 }
 
-bool recursiveBinarySearch(const vector<string> &DICT, string searchWord) {
+size_t recursiveBinarySearch(const vector<string> &DICT, string searchWord) {
     // searchWord transformation needed if not case sensitive
     if (!CASE_SENSITIVE) searchWord = strToLower(searchWord);
 
@@ -140,15 +140,15 @@ bool recursiveBinarySearch(vector<string>::iterator startIt, vector<string>::ite
     return recursiveBinarySearch(startIt, endIt, searchWord);
 }
 
-bool recursiveBinarySearch(const vector<string> &DICT, const string &WORD, size_t first,
+size_t recursiveBinarySearch(const vector<string> &DICT, const string &WORD, size_t first,
                            size_t last) {
 
     size_t middle = first + (last - first) / 2;
 
     string currentWord = CASE_SENSITIVE ? DICT.at(middle) : strToLower(DICT.at(middle));
-    if (currentWord == WORD) return true;
+    if (currentWord == WORD) return middle;
 
-    if (last - first == 0) return false;
+    if (last - first == 0) return string::npos;
 
     if (currentWord < WORD) {
         first = middle + 1;
