@@ -8,7 +8,11 @@ Date        : 14.01.2019
 But         : Fichier principale, contenant l'execution des différentes fonctions
                 de recherche.
 
-Remarque(s) :
+Remarque(s) : 1. Nous avons décider de gérer entièrement la casse, dans le header search.h vous pouvez changer la variable
+              "CASE_SENSITIVE" pour tester cela.
+              2. Nous avons utiliser / tester notre code sur des plateformes Linux. Vous pouvez retrouver la variable
+              "OS_TYPE" qui correspond à la plateforme que vous utiliser dans le header read.h. Il faut qu'elle corresponde
+              à l'OS que vous utilisez car les dictionnaires n'ont pas le meme encodage sur Linux ou Windows.
 
 Compilateur : MinGW-g++ <8.2.1>
 -----------------------------------------------------------------------------------
@@ -102,5 +106,6 @@ int main() {
     } else {
         cout << "Trouve" << endl;
     }
+
     return 0;
 }
