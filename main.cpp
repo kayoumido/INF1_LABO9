@@ -54,6 +54,8 @@ int main() {
     cout << "Recherche du mot : " << searchWord << endl;
     cout << "------------------------------------" << endl;
 
+
+    // All tests
     cout << "Recherche lineaire sans iterateur (inverse_dictionary) : ";
     size_t linearResponsePos = linearSearch(inverseDict, searchWord);
     if(linearResponsePos == string::npos) {
