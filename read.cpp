@@ -18,12 +18,11 @@ Compilateur : g++ <8.2.1>
 
 using namespace std;
 
-vector<string> readFile(const string &FILE_NAME) {
-    string relativePath = DICT_FILE_LOCATION + OS_TYPE + FILE_NAME + FILE_EXTENSION;
+vector<string> readFile(const string &FILE) {
     vector<string> content;
     ifstream ifs;
 
-    ifs.open(relativePath);
+    ifs.open(FILE);
     // check if the file was opened
     if (!ifs.good()) return content;
 

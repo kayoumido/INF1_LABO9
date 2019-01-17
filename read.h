@@ -20,17 +20,12 @@ Compilateur : MinGW-g++ <8.2.1>
 #include <string>
 #include <vector>
 
-// ../ is used because the executable is found in cmake-build-debug/ (clion)
-const std::string DICT_FILE_LOCATION = "../dico/";
-const std::string OS_TYPE = "unix/";
-const std::string FILE_EXTENSION = ".txt";
-
 /**
  * @brief Reads a file and store it's content in a vector
  * @param fileName to open
  * @return the vector containing the file content
  */
-std::vector<std::string> readFile(const std::string &FILE_NAME);
+std::vector<std::string> readFile(const std::string &FILE);
 
 /**
  * @brief Inverse order of all the items in a vector of strings.
