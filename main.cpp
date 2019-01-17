@@ -22,9 +22,14 @@ Compilateur : g++ <8.2.1>
 #include "read.h"
 #include "search.h"
 #include <iostream>
-#include <algorithm>
 
 using namespace std;
+
+void displayDict(const vector<string>& DICT) {
+    for(auto i = DICT.begin(); i < DICT.end(); ++i) {
+        cout << *i << endl;
+    }
+}
 
 
 int main() {
@@ -32,6 +37,8 @@ int main() {
     // Dictionary loading
     vector<string> dict = readFile("../files/dictionary.txt");
     vector<string> text = readFile("../files/input_sh.txt");
+    sortAsc(dict);
 
+    displayDict(dict);
     return 0;
 }

@@ -34,7 +34,7 @@ std::vector<std::string> readFile(const std::string &FILE);
 void inverse(std::vector<std::string> &dict);
 
 /**
- * @brief ASC Sort a vector of string using the bubble sort algorithme
+ * @brief ASC Sort a vector of string using
  * @param dict vector to sort
  */
 void sortAsc(std::vector<std::string> &dict);

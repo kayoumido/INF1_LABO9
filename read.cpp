@@ -15,6 +15,7 @@ Compilateur : g++ <8.2.1>
  */
 #include "read.h"
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -47,17 +48,5 @@ void inverse(vector<string> &dict) {
 }
 
 void sortAsc(vector<string> &dict) {
-    bool unsorted = true;
-
-    while (unsorted) {
-        unsorted = false;
-        for (size_t i = 0; i < dict.size(); ++i) {
-            if (i + 1 < dict.size() and dict.at(i) > dict.at(i + 1)) {
-                string current = dict.at(i);
-                dict.at(i) = dict.at(i + 1);
-                dict.at(i + 1) = current;
-                unsorted = true;
-            }
-        }
-    }
+    sort(dict.begin(), dict.end());
 }
