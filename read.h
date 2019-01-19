@@ -20,18 +20,25 @@ Compilateur : MinGW-g++ <8.2.1>
 #include <string>
 #include <vector>
 
+// Vector to contain all the different word separators
+const std::vector<char> SEPARATORS = {
+    ' ',
+    '-',
+};
+
 /**
  * @brief Reads a file and store it's content in a vector
- * @param fileName to open
- * @return the vector containing the file content
+ * @param FILE path of the file to open
+ * @return the content of the file in the form of a vector of strings
  */
 std::vector<std::string> readFile(const std::string &FILE);
 
 /**
- * @brief Inverse order of all the items in a vector of strings.
- * @param dict the vector of strings to invert
+ * @brief Separate each word of a sentence in a vector
+ * @param SENTENCE to separate
+ * @return Vector containing each word of the given sentence
  */
-void inverse(std::vector<std::string> &dict);
+std::vector<std::string> split(const std::string &SENTENCE);
 
 /**
  * @brief ASC Sort a vector of string using
