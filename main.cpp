@@ -34,11 +34,15 @@ void displayDict(const vector<string>& DICT) {
 
 int main() {
 
+    string sentence = "One night--it was on the twentieth of March, 1888--I was";
+    vector<string> foo = split(sentence.begin(), sentence.end());
+    displayDict(foo);
+
     // Dictionary loading
     vector<string> dict = readFile("../files/dictionary.txt");
     vector<string> text = readFile("../files/input_sh.txt");
     sortAsc(dict);
 
-    displayDict(dict);
+    // displayDict(dict);
     return 0;
 }

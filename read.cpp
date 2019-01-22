@@ -53,18 +53,17 @@ bool isSeparator(char c) {
     return find(SEPARATORS.begin(), SEPARATORS.end(), c) != SEPARATORS.end();
 }
 
-vector<string> split(const string &SENTENCE) {
+vector<string> split(string::iterator start, string::iterator end) {
     vector<string> words;
 
-    auto start = SENTENCE.begin();
-    auto end = SENTENCE.end();
-
+    string::iterator wordEnd;
     string word;
-    while((end = find_if(start, SENTENCE.end(), isSeparator)) != SENTENCE.end()) {
-        word = string(start, end);
+    while((wordEnd = find_if(start, end, isSeparator)) != end) {
+        word = string(start, wordEnd);
+        transform(word.begin(), word.end(), word.begin(), ::tolower);
 
         if (!word.empty()) words.push_back(word);
-        start = end + 1;
+        start = wordEnd + 1;
     }
 
     return words;

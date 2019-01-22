@@ -24,6 +24,7 @@ Compilateur : MinGW-g++ <8.2.1>
 const std::vector<char> SEPARATORS = {
     ' ',
     '-',
+    ',',
 };
 
 /**
@@ -38,7 +39,7 @@ std::vector<std::string> readFile(const std::string &FILE);
  * @param SENTENCE to separate
  * @return Vector containing each word of the given sentence
  */
-std::vector<std::string> split(const std::string &SENTENCE);
+std::vector<std::string> split(std::string::iterator start, std::string::iterator end);
 
 /**
  * @brief ASC Sort a vector of string using
