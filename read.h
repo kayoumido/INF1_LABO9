@@ -20,12 +20,6 @@ Compilateur : MinGW-g++ <8.2.1>
 #include <string>
 #include <vector>
 
-// Vector to contain all the different word separators
-const std::vector<char> SEPARATORS = {
-    ' ',
-    '-',
-    ',',
-};
 
 /**
  * @brief Reads a file and store it's content in a vector

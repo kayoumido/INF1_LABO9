@@ -27,6 +27,8 @@ using namespace std;
  */
 bool isSeparator(char c);
 
+string constructWord(const string::iterator &start, const string::iterator &end);
+
 vector<string> readFile(const string &FILE) {
     vector<string> content;
     ifstream ifs;
@@ -50,7 +52,14 @@ void sortAsc(vector<string> &dict) {
 }
 
 bool isSeparator(char c) {
-    return find(SEPARATORS.begin(), SEPARATORS.end(), c) != SEPARATORS.end();
+    return !isalnum(c);
+}
+
+string constructWord(const string::iterator &start, const string::iterator &end) {
+    string word = string(start, end);
+    transform(word.begin(), word.end(), word.begin(), ::tolower);
+
+    return word;
 }
 
 vector<string> split(string::iterator start, string::iterator end) {
@@ -59,12 +68,14 @@ vector<string> split(string::iterator start, string::iterator end) {
     string::iterator wordEnd;
     string word;
     while((wordEnd = find_if(start, end, isSeparator)) != end) {
-        word = string(start, wordEnd);
-        transform(word.begin(), word.end(), word.begin(), ::tolower);
+
+        word = constructWord(start, wordEnd);
 
         if (!word.empty()) words.push_back(word);
         start = wordEnd + 1;
     }
+
+    words.push_back(constructWord(start, end));
 
     return words;
 }
