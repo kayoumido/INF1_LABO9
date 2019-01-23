@@ -52,14 +52,11 @@ void sortAsc(vector<string> &dict) {
 }
 
 bool isSeparator(char c) {
-    return !isalnum(c);
+    return !isalnum(c) and c != '\'';
 }
 
 string constructWord(const string::iterator &start, const string::iterator &end) {
-    string word = string(start, end);
-    transform(word.begin(), word.end(), word.begin(), ::tolower);
-
-    return word;
+    return string(start, end);
 }
 
 vector<string> split(string::iterator start, string::iterator end) {

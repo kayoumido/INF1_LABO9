@@ -28,4 +28,7 @@ Compilateur : MinGW-g++ <8.2.1>
  */
 size_t searchAA(const std::string& NEEDLE, const std::vector<std::string>& HAYSTACK);
 
+void sanitizeDictionary(std::vector<std::string>& dict);
+std::string sanitizeWord(std::string word);
+
 #endif //LABO09_SEARCH_H
