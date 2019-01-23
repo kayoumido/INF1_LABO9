@@ -75,7 +75,7 @@ vector<string> split(string::iterator start, string::iterator end) {
         start = wordEnd + 1;
     }
 
-    words.push_back(constructWord(start, end));
+    if (!constructWord(start, end).empty()) words.push_back(constructWord(start, end));
 
     return words;
 }

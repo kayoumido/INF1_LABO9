@@ -16,7 +16,7 @@ Compilateur : g++ <8.2.1>
 
 using namespace std;
 
-size_t search(const string& NEEDLE, const vector<string>& HAYSTACK) {
+size_t searchAA(const string& NEEDLE, const vector<string>& HAYSTACK) {
 
     // the word wasn't found
     return string::npos;
