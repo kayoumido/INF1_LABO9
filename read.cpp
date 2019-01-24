@@ -1,12 +1,12 @@
 /*
 -----------------------------------------------------------------------------------
-Laboratoire : Labo09
+Laboratoire : Labo09-b
 Fichier     : read.cpp
 Auteur(s)   : Loic Dessaules, Doran Kayoumi
-Date        : 16.01.2019
+Date        : 24.01.2019
 
 But         : Contient toutes les fonctions en lien avec la lecture de fichier et
-                ordrage de vecteur.
+                ordrage / manipulation de vecteur.
 
 Remarque(s) :
 
@@ -29,7 +29,6 @@ using namespace std;
 bool isSeparator(char c);
 
 string constructWord(const string::iterator &start, const string::iterator &end);
-
 
 vector<string> readFile(const string &FILE) {
     vector<string> content;
@@ -97,13 +96,16 @@ string sanitizeWord(std::string word) {
     return word;
 }
 
-vector<string> spellchecker(const vector<string>& DICT, const vector<string>& SENTENCES) {
+vector<string> sentenceSpellcheck(const vector<string>& DICT, const vector<string>& SENTENCES) {
     vector<string> allMisspelledWords;
-    for(auto it = SENTENCES.begin(); it < SENTENCES.end(); ++it) {
+
+    for(vector<string>::const_iterator it = SENTENCES.begin(); it < SENTENCES.end(); ++it) {
+        // Get all words of the line and check if they are correctly spell. Every misspelled words are fetched.
         string currentSentence = *it;
         const vector<string> WORDS_OF_LINE = split(currentSentence.begin(), currentSentence.end());
         const vector<string> MISSPELLED_WORDS_OF_LINE = searchWords(DICT, WORDS_OF_LINE);
         size_t lineNb = distance(SENTENCES.begin(), it) + 1;
+        // Put every misspelled words in a single vector that we'll return
         for(const string WORD : MISSPELLED_WORDS_OF_LINE) {
             const string STR_LINE = to_string(lineNb) + ": ";
             allMisspelledWords.push_back(STR_LINE + WORD);
