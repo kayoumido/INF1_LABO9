@@ -1,18 +1,16 @@
 /*
 -----------------------------------------------------------------------------------
-Laboratoire : Labo09
+Laboratoire : Labo09-b
 Fichier     : main.cpp
 Auteur(s)   : Loic Dessaules, Doran Kayoumi
-Date        : 16.01.2019
+Date        : 24.01.2019
 
-But         : Fichier principale, contenant l'execution des différentes fonctions
-                de recherche.
+But         : Le but de ce laboratoire est d'utiliser les outils développés au laboratoire 9 pour créer un correcteur
+                orthographique de base qui parcourt un texte et indique les mots mal orthographiés.
 
-Remarque(s) : 1. Nous avons décider de gérer entièrement la casse, dans le header search.h vous pouvez changer la variable
-              "CASE_SENSITIVE" pour tester cela.
-              2. Nous avons utiliser / tester notre code sur des plateformes Linux. Vous pouvez retrouver la variable
-              "OS_TYPE" qui correspond à la plateforme que vous utiliser dans le header read.h. Il faut qu'elle corresponde
-              à l'OS que vous utilisez car les dictionnaires n'ont pas le meme encodage sur Linux ou Windows.
+Remarque(s) : La casse n'est pas gérée, toutes les comparaisons se font en minuscule. Attention si vous compilez avec
+              l'OS Linux, il se peut que les fichiers contenus dans le dossier "files" ne soient pas au bon format UNIX.
+              Pour régler le problème il faut re-générer le fichier au bon format, c.f commande dos2unix.
 
 Compilateur : g++ <8.2.1>
 -----------------------------------------------------------------------------------
@@ -21,28 +19,22 @@ Compilateur : g++ <8.2.1>
 
 #include "read.h"
 #include "search.h"
-#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-void displayDict(const vector<string>& DICT) {
-    for(auto i = DICT.begin(); i < DICT.end(); ++i) {
-        cout << *i << endl;
-    }
-}
-
 
 int main() {
-
-    string sentence = "One night--it was on the twentieth of March, 1888--I was";
-    vector<string> foo = split(sentence.begin(), sentence.end());
-    displayDict(foo);
-
-    // Dictionary loading
+    // Dictionary and text sentences loading
     vector<string> dict = readFile("../files/dictionary.txt");
-    vector<string> text = readFile("../files/input_sh.txt");
-    sortAsc(dict);
+    const vector<string> SENTENCES = readFile("../files/input_sh.txt");
 
-    // displayDict(dict);
+    sanitizeDictionary(dict);
+    sortAsc(dict); // Don't forget to sort asc, because we use binary_search algo.
+
+    // Fetch all misspelled word and display them
+    const vector<string> MISSSPELLED_WORDS = sentenceSpellcheck(dict, SENTENCES);
+    displayDict(MISSSPELLED_WORDS);
+
     return 0;
 }
