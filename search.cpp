@@ -13,23 +13,22 @@ Compilateur : g++ <8.2.1>
 -----------------------------------------------------------------------------------
  */
 #include "search.h"
+#include "read.h"
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
-void sanitizeDictionary(std::vector<std::string>& dict) {
-    for(string& word : dict){
-        word = sanitizeWord(word);
+vector<string> searchWords(const vector<string>& DICT, const vector<string>& WORDS) {
+    vector<string> wordsNotFounds;
+    wordsNotFounds.reserve(WORDS.size());
+    for(vector<string>::const_iterator itWords = WORDS.begin(); itWords < WORDS.end(); ++itWords) {
+        bool found = binary_search(DICT.begin(), DICT.end(), sanitizeWord(*itWords));
+        if(!found) {
+            wordsNotFounds.push_back(*itWords);
+        }
     }
-}
+    wordsNotFounds.shrink_to_fit();
 
-string sanitizeWord(std::string word) {
-    transform(word.begin(), word.end(), word.begin(), ::tolower);
-    return word;
-}
-
-size_t searchAA(const string& NEEDLE, const vector<string>& HAYSTACK) {
-
-    // the word wasn't found
-    return string::npos;
+    return wordsNotFounds;
 }

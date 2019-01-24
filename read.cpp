@@ -14,6 +14,7 @@ Compilateur : g++ <8.2.1>
 -----------------------------------------------------------------------------------
  */
 #include "read.h"
+#include "search.h"
 #include <fstream>
 #include <algorithm>
 #include <iostream>
@@ -83,4 +84,37 @@ vector<string> split(string::iterator start, string::iterator end) {
     if (!constructWord(start, end).empty()) words.push_back(constructWord(start, end));
 
     return words;
+}
+
+void sanitizeDictionary(std::vector<std::string>& dict) {
+    for(string& word : dict){
+        word = sanitizeWord(word);
+    }
+}
+
+string sanitizeWord(std::string word) {
+    transform(word.begin(), word.end(), word.begin(), ::tolower);
+    return word;
+}
+
+vector<string> spellchecker(const vector<string>& DICT, const vector<string>& SENTENCES) {
+    vector<string> allMisspelledWords;
+    for(auto it = SENTENCES.begin(); it < SENTENCES.end(); ++it) {
+        string currentSentence = *it;
+        const vector<string> WORDS_OF_LINE = split(currentSentence.begin(), currentSentence.end());
+        const vector<string> MISSPELLED_WORDS_OF_LINE = searchWords(DICT, WORDS_OF_LINE);
+        size_t lineNb = distance(SENTENCES.begin(), it) + 1;
+        for(const string WORD : MISSPELLED_WORDS_OF_LINE) {
+            const string STR_LINE = to_string(lineNb) + ": ";
+            allMisspelledWords.push_back(STR_LINE + WORD);
+        }
+    }
+
+    return allMisspelledWords;
+}
+
+void displayDict(const std::vector<std::string>& DICT) {
+    for(string word : DICT) {
+        cout << word << endl;
+    }
 }

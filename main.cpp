@@ -26,36 +26,17 @@ Compilateur : g++ <8.2.1>
 
 using namespace std;
 
-void displayDict(const vector<string>& DICT) {
-    for(auto i = DICT.begin(); i < DICT.end(); ++i) {
-        cout << *i << endl;
-    }
-}
-
 
 int main() {
-
     // Dictionary loading
     vector<string> dict = readFile("../files/dictionary.txt");
+    const vector<string> SENTENCES = readFile("../files/input_sh.txt");
 
     sanitizeDictionary(dict);
     sortAsc(dict);
 
-    vector<string> sentences = readFile("../files/input_sh.txt");
+    const vector<string> MISSSPELLED_WORDS = spellchecker(dict, SENTENCES);
 
-    for(auto it = sentences.begin(); it < sentences.end(); ++it) {
-        string currentSentence = *it;
-        vector<string> words = split(currentSentence.begin(), currentSentence.end());
-
-        for(auto itWords = words.begin(); itWords < words.end(); ++itWords) {
-            bool found = binary_search(dict.begin(), dict.end(), sanitizeWord(*itWords));
-            if(!found) {
-                size_t lineNb = distance(sentences.begin(), it) + 1;
-                cout << "Line : " << lineNb << " " << *itWords << endl;
-            }
-        }
-    }
-
-    // displayDict(dict);
+    displayDict(MISSSPELLED_WORDS);
     return 0;
 }

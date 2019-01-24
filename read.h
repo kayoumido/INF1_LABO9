@@ -42,4 +42,12 @@ std::vector<std::string> split(std::string::iterator start, std::string::iterato
  */
 void sortAsc(std::vector<std::string> &dict);
 
+void sanitizeDictionary(std::vector<std::string>& dict);
+
+std::string sanitizeWord(std::string word);
+
+std::vector<std::string> spellchecker(const std::vector<std::string>& DICT, const std::vector<std::string>& SENTENCES);
+
+void displayDict(const std::vector<std::string>& DICT);
+
 #endif //LABO09_READ_H

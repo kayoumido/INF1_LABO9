@@ -20,15 +20,6 @@ Compilateur : MinGW-g++ <8.2.1>
 #include <vector>
 #include <string>
 
-/**
- * @brief Search a vector for a given value
- * @param NEEDLE the searched value
- * @param HAYSTACK vector in which to search
- * @return the position of the needle in the haystack, if it wasn't found, string::npos is returned
- */
-size_t searchAA(const std::string& NEEDLE, const std::vector<std::string>& HAYSTACK);
-
-void sanitizeDictionary(std::vector<std::string>& dict);
-std::string sanitizeWord(std::string word);
+std::vector<std::string> searchWords(const std::vector<std::string>& DICT, const std::vector<std::string>& WORDS);
 
 #endif //LABO09_SEARCH_H
