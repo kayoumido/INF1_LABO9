@@ -20,6 +20,7 @@ Compilateur : MinGW-g++ <8.2.1>
 #include <string>
 #include <vector>
 
+const char QUOTE = '\'';
 
 /**
  * @brief Reads a file and store it's content in a vector

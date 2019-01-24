@@ -29,6 +29,7 @@ bool isSeparator(char c);
 
 string constructWord(const string::iterator &start, const string::iterator &end);
 
+
 vector<string> readFile(const string &FILE) {
     vector<string> content;
     ifstream ifs;
@@ -52,11 +53,18 @@ void sortAsc(vector<string> &dict) {
 }
 
 bool isSeparator(char c) {
-    return !isalnum(c) and c != '\'';
+    return !isalpha(c) and c != QUOTE;
 }
 
 string constructWord(const string::iterator &start, const string::iterator &end) {
-    return string(start, end);
+    string word = string(start, end);
+
+    // check if the start and/or the end of the constructed word equals QUOTE
+    // if so, the QUOTE is removed.
+    if (word.front() == QUOTE) word.erase(0, 1);
+    if (word.back() == QUOTE) word.pop_back();
+
+    return word;
 }
 
 vector<string> split(string::iterator start, string::iterator end) {
