@@ -8,7 +8,9 @@ Date        : 24.01.2019
 But         : Contient toutes les fonctions en lien avec la lecture de fichier et
                 ordrage / manipulation de vecteur.
 
-Remarque(s) :
+Remarque(s) : Les rototype des fonctions isSeparator et constructWord ne sont pas 
+              déclarés dans le fichier read.h car ces fonctions sont seulement utilisé
+              dans ce fichier.
 
 Compilateur : g++ <8.2.1>
 -----------------------------------------------------------------------------------
