@@ -28,6 +28,12 @@ using namespace std;
  */
 bool isSeparator(char c);
 
+/**
+ * @brief Build a word using string iterators
+ * @param start starting iterator
+ * @param end ending iterator
+ * @return the newly constructed word
+ */
 string constructWord(const string::iterator &start, const string::iterator &end);
 
 vector<string> readFile(const string &FILE) {
